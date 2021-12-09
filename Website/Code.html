@@ -1,0 +1,168 @@
+<div>
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    
+   </head>
+  <link href="./home.css" rel="stylesheet" />
+  <div class="home-container">
+    <h1>Mission</h1>
+    <div class="home-container01">
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+      <textarea placeholder="placeholder" class="textarea"></textarea>
+    </div>
+    <div class="home-container02">
+      <div class="home-container03">
+        <label for="regel-choice">Regelauswahl</label>
+        <form method="post" id="multiple_select_form">
+          <select name="framework" id="framework" class="form-control selectpicker" data-live-search="true" multiple>
+           <option value="Laravel">Rule1</option>
+           <option value="Symfony">Rule2</option>
+           <option value="Codeigniter">Rule3</option>
+           <option value="CakePHP">Rule4</option>
+           <option value="Zend">Rule5</option>
+           <option value="Yii">Rule6</option>
+           <option value="Slim">Rule7</option>
+          </select>
+          <br /><br />
+          <input type="hidden" name="hidden_framework" id="hidden_framework" />
+          <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+         </form>
+      </div>
+      <div class="home-container04">
+        <form class="home-form">
+          <textarea
+            placeholder="Variableneingabe"
+            class="home-textarea25 textarea"
+            id= "variablenTextArea2"
+          ></textarea>
+          <textarea
+            placeholder="Werteingabe"
+            class="home-textarea26 textarea"
+            id= "wertTextArea"
+          ></textarea>
+          <textarea
+            placeholder="Variableneingabe"
+            class="home-textarea27 textarea"
+            id= "variablenTextArea1"
+
+          ></textarea>
+          <textarea
+            placeholder="Werteingabe"
+            class="home-textarea28 textarea"
+            id= "wertTextArea1"
+          ></textarea>
+          <textarea
+            placeholder="Operatoreneingabe"
+            class="home-textarea29 textarea"
+            id= "operatorenEingabeTextArea1"
+          ></textarea>
+          <textarea
+            placeholder="Verbindungsoperatoreingabe"
+            class="home-textarea30 textarea"
+            id= "VerbindungsoperatoreingabeTextArea"
+          ></textarea>
+          <textarea
+            placeholder="Operatoreneingabe2"
+            class="home-textarea31 textarea"
+            id= operatorenEingabeTextArea2
+          ></textarea>
+          <button class="home-button button">Speichern</button>
+          <textarea
+            placeholder="Output"
+            class="home-textarea32 textarea"
+            id= outputTextArea
+            
+          ></textarea>
+          <input
+            type="text"
+            placeholder="Name Regel"
+            class="home-textinput input"
+            id="NamenTextField" ondrop="drop(event)" ondragover="allowDrop(event)"
+          />
+          <label class="home-text1">Name der neuen Regel</label>
+        </form>
+      </div>
+      <div class="home-container05">
+        <div class="home-container06">
+         <section class="dragable-elements">
+
+          <div class="home-container07">
+            <button class="home-button01 button" draggable = "true" id= "groeser">&gt;</button>
+            <button class="home-button02 button" draggable = "true" id= "plus">+</button>
+          </div>
+          <div class="home-container08">
+            <button class="home-button03 button" draggable = "true" id= "kleiner">&lt;</button>
+            <button class="home-button04 button" draggable = "true" id= "minus">-</button>
+          </div>
+          <div class="home-container09">
+            <button class="home-button05 button" draggable = "true" id= "gleich">=</button>
+            <button class="home-button06 button" draggable = "true" id= "mal">*</button>
+          </div>
+          <div class="home-container10">
+            <button class="home-button07 button" draggable = "true" id= "ungleich">!=</button>
+            <button class="home-button08 button" draggable = "true" id= "dividiert">/</button>
+          </div>
+          <div class="home-container11">
+            <button class="home-button09 button" draggable = "true" id= "und">UND</button>
+            <button class="home-button10 button" draggable = "true" id= "rest">%</button>
+          </div>
+          <div class="home-container12">
+            <button class="home-button11 button" draggable = "true" id= "oder">ODER</button>
+            <button class="home-button12 button" draggable = "true" id= "ja">JA</button>
+          </div>
+          <div class="home-container13">
+            <button class="home-button13 button" draggable = "true" id= "nicht">NICHT</button>
+            <button class="home-button14 button" draggable = "true" id= "wert">WERT</button>
+          </div>
+        </section>
+        </div>
+        <button class="home-button15 button">Importieren</button>
+      </div>
+    </div>
+    <form class="home-form1"></form>
+  </div>
+  <script>
+    $(document).ready(function(){
+     $('.selectpicker').selectpicker();
+    
+     $('#framework').change(function(){
+      $('#hidden_framework').val($('#framework').val());
+     });
+    
+     $('#multiple_select_form').on('submit', function(event){
+      event.preventDefault();
+      if($('#framework').val() != '')
+      {
+       var form_data = $(this).serialize();
+       $.ajax({
+        url:"insert.php",
+        method:"POST",
+        data:form_data,
+        success:function(data)
+        {
+         //console.log(data);
+         $('#hidden_framework').val('');
+         $('.selectpicker').selectpicker('val', '');
+         alert(data);
+        }
+       })
+      }
+      else
+      {
+       alert("Bitte wählen Sie zuerst eine Regel aus");
+       return false;
+      }
+     });
+    });
+    </script>
+</div>
+
