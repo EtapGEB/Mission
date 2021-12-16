@@ -1,0 +1,197 @@
+<div>
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+         <style>
+          #div1{
+            float:right;
+          width: 380px;
+          height: 700px;
+          margin: 10px;
+          padding: 10px;
+          border: 1px hidden black;
+        }
+        #div2{
+          float:left;
+          width: 1500px;
+          height: 100px;
+          margin: 10px;
+          padding: 10px;
+          border: 1px hidden black;
+        
+        }
+        </style>
+        <script>
+          function allowDrop(ev) {
+            ev.preventDefault();
+          }
+          
+          function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+          }
+          
+          function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+          }
+          </script>
+   </head>
+  <link href="./home.css" rel="stylesheet" />
+  <div class="home-container">
+    <h1>Mission</h1>
+    <div class="home-container01">
+      <section class="dragable-inputs">
+
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Pathogen.size()" width="88" height="31">Pathogen.size()</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Total Species" width="88" height="31">Total Species</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Species Over Threshold" width="88" height="31">Species Over Threshold</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Total Species Quantity" width="88" height="31">Total Species Quantity</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Species Over Threshold" width="88" height="31">Species Over Threshold</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Prostataurin" width="88" height="31">Prostataurin</button>
+          <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="Nierenbeckenpunktion" width="88" height="31">Nierenbeckenpunktion</button>
+
+  </div>
+</section>
+</div>
+    <div class="home-container02">
+      <div class="home-container03">
+        <label for="regel-choice">Regelauswahl</label>
+        <form method="post" id="multiple_select_form">
+          <select name="framework" id="framework" class="form-control selectpicker" data-live-search="true" multiple>
+           <option value="Laravel">Rule1</option>
+           <option value="Symfony">Rule2</option>
+           <option value="Codeigniter">Rule3</option>
+           <option value="CakePHP">Rule4</option>
+           <option value="Zend">Rule5</option>
+           <option value="Yii">Rule6</option>
+           <option value="Slim">Rule7</option>
+          </select>
+          <br /><br />
+          <input type="hidden" name="hidden_framework" id="hidden_framework" />
+          <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+         </form>
+      </div>
+      <div class="home-container04">
+        <form class="home-form">
+          <textarea
+          placeholder="Variableneingabe"
+          class="home-textarea25 textarea"
+          id= "variablenTextArea2"
+        ></textarea>
+        <textarea
+          placeholder="Werteingabe"
+          class="home-textarea26 textarea"
+          id= "wertTextArea"
+        ></textarea>
+        <textarea
+          placeholder="Variableneingabe"
+          class="home-textarea27 textarea"
+          id= "variablenTextArea1"
+
+        ></textarea>
+        <textarea
+          placeholder="Werteingabe"
+          class="home-textarea28 textarea"
+          id= "wertTextArea1"
+        ></textarea>
+        <textarea
+          placeholder="Operatoreneingabe"
+          class="home-textarea29 textarea"
+          id= "operatorenEingabeTextArea1"
+        ></textarea>
+        <textarea
+          placeholder="Verbindungsoperatoreingabe"
+          class="home-textarea30 textarea"
+          id= "VerbindungsoperatoreingabeTextArea"
+        ></textarea>
+        <textarea
+          placeholder="Operatoreneingabe2"
+          class="home-textarea31 textarea"
+          id= operatorenEingabeTextArea2
+        ></textarea>
+        <button class="home-button button">Speichern</button>
+        <textarea
+          placeholder="Output"
+          class="home-textarea32 textarea"
+          id= outputTextArea
+          
+            
+          ></textarea>
+          <input
+            type="text"
+            placeholder="Name Regel"
+            class="home-textinput input"
+            id="NamenTextField" 
+          
+          />
+          <label class="home-text1">Name der neuen Regel</label>
+        </form>
+      </div>
+     
+        <div class="home-container06">
+         <section class="dragable-elements">
+
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="&gt;" width="300" height="100">&gt;</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="+" width="300" height="100">+</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="-" width="88" height="31">-</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="UND" width="88" height="31">UND</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="ODER" width="88" height="31">ODER</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="NICHT" width="88" height="31">Nicht</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="&lt" width="88" height="31">&lt;</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="=" width="88" height="31">=</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="*" width="88" height="31">*</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="/" width="88" height="31">/</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="!=" width="88" height="31">!=</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="%" width="88" height="31">%</button>
+    <button class="home-button14 button" draggable="true" ondragstart="drag(event)" id="JA" width="88" height="31">JA</button>
+          </div>
+        </section>
+        </div>
+        <button class="home-button15 button">Importieren</button>
+      
+    
+    <form class="home-form1"></form>
+  </div>
+  <script>
+    $(document).ready(function(){
+     $('.selectpicker').selectpicker();
+    
+     $('#framework').change(function(){
+      $('#hidden_framework').val($('#framework').val());
+     });
+    
+     $('#multiple_select_form').on('submit', function(event){
+      event.preventDefault();
+      if($('#framework').val() != '')
+      {
+       var form_data = $(this).serialize();
+       $.ajax({
+        url:"insert.php",
+        method:"POST",
+        data:form_data,
+        success:function(data)
+        {
+         //console.log(data);
+         $('#hidden_framework').val('');
+         $('.selectpicker').selectpicker('val', '');
+         alert(data);
+        }
+       })
+      }
+      else
+      {
+       alert("Bitte wählen Sie zuerst eine Regel aus");
+       return false;
+      }
+     });
+    });
+    </script>
+</div>
+
